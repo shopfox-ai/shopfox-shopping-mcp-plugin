@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "shopfox": {
+      "type": "http",
+      "url": "https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SHOPFOX_API_KEY}"
+      }
+    }
+  }
+}

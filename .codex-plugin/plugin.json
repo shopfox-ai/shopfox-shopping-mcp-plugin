@@ -1,0 +1,8 @@
+{
+  "name": "shopfox-shopping",
+  "description": "US shopping research and offer comparison via the Shopfox shopping agent. Produces product recommendations with prices, sellers, and purchase links.",
+  "version": "1.0.0",
+  "skills": {
+    "shopping-advisor": "skills/shopping-advisor/SKILL.md"
+  }
+}

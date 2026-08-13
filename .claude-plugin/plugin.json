@@ -1,0 +1,17 @@
+{
+  "name": "shopfox-shopping",
+  "description": "US shopping research and offer comparison via the Shopfox shopping agent. Produces product recommendations with prices, sellers, and purchase links.",
+  "version": "1.0.0",
+  "author": "Shopfox",
+  "homepage": "https://shopfox.ai",
+  "license": "Apache-2.0",
+  "skills": {
+    "shopping-advisor": "skills/shopping-advisor/SKILL.md"
+  },
+  "mcpServers": {
+    "shopfox": {
+      "type": "http",
+      "url": "https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp"
+    }
+  }
+}
