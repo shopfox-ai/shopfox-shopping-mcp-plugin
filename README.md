@@ -1,14 +1,42 @@
 # Shopfox Shopping Agent
 
-> US shopping research and offer comparison for Claude Code, ChatGPT, and other AI assistants.
+> US shopping research and offer comparison for Claude Code, ChatGPT, Cursor, and other AI assistants — one report per request, with real prices and purchase links.
 
-## 🚀 Quick Start
+## ⚡ Easiest Way: Let Your Agent Install It
 
-### For Claude Code / Claude Desktop
+Copy and paste this into **any** AI agent that supports MCP (Claude Code, Cursor, Windsurf, Codex CLI, etc.):
 
-1. Get your API key from [shopfox.ai/settings](https://shopfox.ai/settings) (Desktop app → Settings → Agent API)
+```
+Please install the Shopfox Shopping MCP plugin for me:
 
-2. Add to Claude Desktop config:
+1. Go to https://github.com/shopfox-ai/shopfox-mcp-plugin and read the README
+   and the .mcp.json in that repository.
+2. Add an MCP server entry named "shopfox" with:
+   - type: http
+   - url: https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp
+   - headers: { "Authorization": "Bearer <MY_SHOPFOX_API_KEY>" }
+3. Tell me where I can get my API key if I don't have one yet.
+4. After it's installed, confirm it works by asking me to try a shopping question.
+```
+
+The agent will read this repository, configure the MCP server for you, and tell you where to get your key. No manual JSON editing needed.
+
+## 🔑 Getting Your API Key
+
+Your Shopfox API key is created in the **Shopfox web app**:
+
+1. Open [shopfox.ai](https://shopfox.ai) and log in
+2. Go to **Settings → Agent API**
+3. Click **Generate key** — the key starts with `sk_shopfox_` and is shown only once (copy it and store it safely)
+
+You can generate, list, and revoke keys there at any time.
+
+## 🚀 Manual Installation
+
+### Claude Desktop / Claude Code
+
+1. Get your API key (see above)
+2. Add to your Claude config:
    - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
@@ -27,23 +55,36 @@
 ```
 
 3. Restart Claude Desktop
-
 4. Try asking: **"Find me noise-cancelling headphones under $300"**
 
-### For skills.sh
+### Any MCP-compatible client
+
+Point your client at the same endpoint:
+
+```
+URL:      https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp
+Type:     Streamable HTTP
+Auth:     Bearer token (your sk_shopfox_ key)
+Tools:    generate_shopping_report, research_shopping_options
+```
+
+### skills.sh
 
 ```bash
 skills install shopfox-shopping
-```
-
-Then set your API key:
-```bash
 export SHOPFOX_API_KEY="sk_shopfox_..."
 ```
 
-### For ChatGPT
+## 🔌 Platform Availability
 
-Install from [ChatGPT Plugin Store](https://chatgpt.com) (coming soon)
+| Platform | Status |
+|----------|--------|
+| **Any local MCP agent** (Claude Code, Cursor, Windsurf, Codex, etc.) | ✅ Available now — use the prompt above or manual config |
+| **skills.sh** | ✅ Available now |
+| **ChatGPT / OpenAI Apps** | 🚧 In development & review |
+| **Claude Plugin Directory** | 🚧 In development & review |
+
+Once the ChatGPT and Claude listings go live, you'll be able to install Shopfox Shopping directly from their app stores — no manual configuration. We'll update this README and post on [shopfox.ai](https://shopfox.ai) when they launch.
 
 ## 🛠️ Features
 
@@ -52,15 +93,15 @@ Install from [ChatGPT Plugin Store](https://chatgpt.com) (coming soon)
 - **Budget-aware recommendations** with filtering by price range and features
 - **Cross-session memory** - remembers your brand preferences and shopping style
 - **Two research modes**:
+  - `generate_shopping_report` - One-shot complete report (preferred)
   - `research_shopping_options` - Interactive with clarification questions
-  - `generate_shopping_report` - One-shot complete report
 
 ## 📖 Example Prompts
 
 ### Basic Search
 ```
+"Find me noise-cancelling headphones under $300"
 "Compare wireless keyboards under $100"
-"Find the best noise-cancelling headphones"
 "What's a good gaming laptop for $1500?"
 ```
 
@@ -75,9 +116,11 @@ Install from [ChatGPT Plugin Store](https://chatgpt.com) (coming soon)
 After your first search, the agent remembers your preferences:
 ```
 First: "Find me an iPhone case, I prefer minimalist designs"
-Later: "Now find me AirPods" 
+Later: "Now find me AirPods"
        → Automatically considers Apple ecosystem and minimalist style
 ```
+
+More detailed walkthroughs: [examples/](./examples/)
 
 ## 🔒 Rate Limits
 
@@ -95,31 +138,6 @@ Later: "Now find me AirPods"
    - Key pros and cons
    - Best use cases
 
-## 🔧 Configuration
-
-### Environment Variables
-
-```bash
-# Required: Your Shopfox API key
-SHOPFOX_API_KEY="sk_shopfox_..."
-
-# Optional: Custom MCP server URL (default: https://mcp.shopfox.ai)
-SHOPFOX_MCP_URL="https://your-server.com"
-```
-
-### Rate Limit Configuration
-
-Rate limits can be configured via environment variables on the server side:
-
-- `MCP_DAILY_CALL_LIMIT` - Daily requests per user (default: 100)
-- `MCP_CONCURRENCY_LIMIT` - Concurrent requests per user (default: 3)
-
-## 📚 Documentation
-
-- [Full Documentation](https://docs.shopfox.ai/mcp) (coming soon)
-- [API Reference](https://docs.shopfox.ai/api) (coming soon)
-- [Example Use Cases](./examples/)
-
 ## 🆘 Support
 
 - **Email**: support@shopfox.ai
@@ -136,16 +154,15 @@ Rate limits can be configured via environment variables on the server side:
 ## ⚠️ Limitations
 
 - **US only** - Currently supports US retailers and shipping
-- **English only** - Reports are generated in English
 - **No checkout** - We provide research and links; you complete purchases on retailer sites
 
 ## 🛣️ Roadmap
 
-- [ ] Support for more countries (UK, Canada, EU)
+- [ ] ChatGPT / OpenAI Apps listing (in review)
+- [ ] Claude Plugin Directory listing (in review)
+- [ ] More countries (UK, Canada, EU)
 - [ ] Multi-language reports
 - [ ] Price tracking and alerts
-- [ ] Saved searches and watchlists
-- [ ] Integration with more AI platforms
 
 ## 📄 License
 
