@@ -11,6 +11,18 @@ metadata:
 
 This skill connects you to the Shopfox shopping agent through the `shopfox` MCP server. All the real work — current-market verification, retailer search, offer lookup, and the purchase report — happens server-side. Your job is only to call the right tool with the right input and relay the result.
 
+## Before You Start: Get Your API Key
+
+The `shopfox` MCP server requires a personal API key (`sk_shopfox_...`). If the user doesn't have one yet, walk them through this — do not guess or skip it:
+
+1. Tell the user to open this link in their browser:
+   **https://shopfox.ai/user-info?createApiKey=1**
+2. They log in with their Shopfox account (or sign up). A key is created automatically once they're signed in and shown on the page **only once**.
+3. Ask the user to copy the key and paste it to you (or you read it back from them), then configure the MCP server entry `shopfox` with `Authorization: Bearer <key>`.
+4. If the link didn't create a key (e.g. they were already signed in), they can always generate one manually at **Settings → Agent API** in the Shopfox web app.
+
+Never ask the user to send their key in plaintext chat logs if the host stores them — prefer configuring the MCP server directly and keeping the key out of the conversation transcript.
+
 ## Tools
 
 ### `generate_shopping_report` — one-shot report (preferred)
