@@ -4,4 +4,4 @@ dependencies:
       value: "shopfox"
       description: "US shopping research and offer comparison"
       transport: "streamable_http"
-      url: "https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp"
+      url: "https://shopfox.ai/mcp"

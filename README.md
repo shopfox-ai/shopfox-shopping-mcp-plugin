@@ -9,11 +9,11 @@ Copy and paste this into **any** AI agent that supports MCP (Claude Code, Cursor
 ```
 Please install the Shopfox Shopping MCP plugin for me:
 
-1. Go to https://github.com/shopfox-ai/shopfox-mcp-plugin and read the README
+1. Go to https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin and read the README
    and the .mcp.json in that repository.
 2. Add an MCP server entry named "shopfox" with:
    - type: http
-   - url: https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp
+   - url: https://shopfox.ai/mcp
    - headers: { "Authorization": "Bearer <MY_SHOPFOX_API_KEY>" }
 3. Tell me where I can get my API key if I don't have one yet.
 4. After it's installed, confirm it works by asking me to try a shopping question.
@@ -45,7 +45,7 @@ You can generate, list, and revoke keys there at any time.
   "mcpServers": {
     "shopfox": {
       "type": "http",
-      "url": "https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp",
+      "url": "https://shopfox.ai/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_KEY_HERE"
       }
@@ -62,7 +62,7 @@ You can generate, list, and revoke keys there at any time.
 Point your client at the same endpoint:
 
 ```
-URL:      https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp
+URL:      https://shopfox.ai/mcp
 Type:     Streamable HTTP
 Auth:     Bearer token (your sk_shopfox_ key)
 Tools:    generate_shopping_report, research_shopping_options
@@ -141,7 +141,7 @@ More detailed walkthroughs: [examples/](./examples/)
 ## 🆘 Support
 
 - **Email**: support@shopfox.ai
-- **Issues**: [GitHub Issues](https://github.com/shopfox-ai/shopfox-mcp-plugin/issues)
+- **Issues**: [GitHub Issues](https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin/issues)
 - **Web App**: [shopfox.ai](https://shopfox.ai)
 
 ## 🔐 Privacy & Security
