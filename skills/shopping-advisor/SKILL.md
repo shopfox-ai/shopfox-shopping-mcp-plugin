@@ -50,10 +50,15 @@ Returns markdown plus `structuredContent`. If the request is too vague it return
 
 ### `start_shopping_report` — async start (ChatGPT / short-timeout hosts)
 
-Use this when the host times out around 60 seconds. It returns immediately with `jobId`, `statusUrl`, and `widgetUrl`. Poll `statusUrl` until `status` is `done`, then relay `markdown`.
+Use this only when the host times out around 60 seconds. It returns immediately with `jobId`, `statusUrl`, and `widgetUrl`.
+
+**You must then poll `statusUrl` yourself (every 3 seconds) until `status` is `done`, and output the complete markdown report directly in your reply.** Never show the status/widget URLs to the user.
 
 ## Rules
 
+- **Never give the user a URL or link to a report** (no status URL, no widget URL, no "open this link" messages). The full report must always appear directly in your reply, as markdown.
+- If you used `start_shopping_report`, poll `statusUrl` yourself until `status` is `done`, then output the full `markdown` report in your reply. Do not ask the user to check a link.
+- If you used `research_shopping_options` and got `needsClarification`, ask the user the clarifying questions first, then call the tool again with `clarification_answers` — never fall back to telling the user to open a link.
 - US shoppers only; all prices and budgets in USD. Do not introduce Chinese domestic platforms (JD, Taobao, Tmall, Pinduoduo, Douyin, Xiaohongshu Shop).
 - Do not invent prices, sellers, links, stock, or ratings — only relay what the tool returns.
 - A report with no products means the agent found no verifiable offers; say so plainly, never fabricate.
