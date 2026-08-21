@@ -18,10 +18,17 @@ Please install the Shopfox Shopping MCP plugin for me:
 3. If the user doesn't have a key yet, tell them to open this link (it logs them
    in and creates a key automatically — they just copy it):
    https://shopfox.ai/user-info?createApiKey=1
-4. After it's installed, confirm it works by asking me to try a shopping question.
+4. After it's installed, ask the user a shopping question and call the tools.
+   IMPORTANT — how to answer: call generate_shopping_report (or research_shopping_options)
+   and output the FULL returned report to the user, verbatim. The report contains 3-5
+   products with real prices, purchase links, pros/cons, and best use cases — the whole
+   report IS the answer. Never summarize it, never shorten it, never pick just one
+   product, and never hand the user a link to open instead.
 ```
 
 The agent will read this repository, configure the MCP server for you, and tell you where to get your key. No manual JSON editing needed.
+
+**How answers are delivered:** the tool returns a complete written report (3-5 products, real prices, purchase links, pros/cons, best use cases). The agent must relay that full report to you directly — it should never summarize it into a single pick or point you to a link.
 
 ## 🔑 Getting Your API Key
 

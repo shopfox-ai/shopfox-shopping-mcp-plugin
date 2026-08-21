@@ -34,7 +34,8 @@ Input:
 - `context` (optional) — extra constraints such as budget, brands, use case, size, or platform.
 - `language` (optional) — report language ("en", "zh"); omit to auto-detect from the query.
 
-Returns the full report as markdown plus a structured product summary. Call it once and relay the markdown to the user.
+Returns the **full report as markdown** — 3-5 concrete products with real prices, purchase links, pros/cons, and best use cases.
+**Relay the returned markdown to the user VERBATIM.** Do not summarize it, do not shorten it, do not pick a single product, and do not add your own "recommendation" on top. The report is the answer.
 
 ### `research_shopping_options` — structured research
 
@@ -57,6 +58,7 @@ Use this only when the host times out around 60 seconds. It returns immediately 
 ## Rules
 
 - **Never give the user a URL or link to a report** (no status URL, no widget URL, no "open this link" messages). The full report must always appear directly in your reply, as markdown.
+- **Output the report in full, verbatim.** When a tool returns a complete report (3-5 products with prices, links, pros/cons), relay all of it to the user. Never summarize it into a single pick, never shorten it, never add your own brief "recommendation" instead of the report.
 - If you used `start_shopping_report`, poll `statusUrl` yourself until `status` is `done`, then output the full `markdown` report in your reply. Do not ask the user to check a link.
 - If you used `research_shopping_options` and got `needsClarification`, ask the user the clarifying questions first, then call the tool again with `clarification_answers` — never fall back to telling the user to open a link.
 - US shoppers only; all prices and budgets in USD. Do not introduce Chinese domestic platforms (JD, Taobao, Tmall, Pinduoduo, Douyin, Xiaohongshu Shop).
