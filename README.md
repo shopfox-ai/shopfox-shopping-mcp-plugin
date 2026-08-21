@@ -15,7 +15,9 @@ Please install the Shopfox Shopping MCP plugin for me:
    - type: http
    - url: https://shopfox.ai/mcp
    - headers: { "Authorization": "Bearer <MY_SHOPFOX_API_KEY>" }
-3. Tell me where I can get my API key if I don't have one yet.
+3. If the user doesn't have a key yet, tell them to open this link (it logs them
+   in and creates a key automatically — they just copy it):
+   https://shopfox.ai/user-info?createApiKey=1
 4. After it's installed, confirm it works by asking me to try a shopping question.
 ```
 
@@ -23,13 +25,14 @@ The agent will read this repository, configure the MCP server for you, and tell 
 
 ## 🔑 Getting Your API Key
 
-Your Shopfox API key is created in the **Shopfox web app**:
+Your Shopfox API key is created in the **Shopfox web app**. Click the link below to
+log in and generate a key in one step (a key is created for you automatically once
+you're signed in — copy it right away, it's only shown once):
 
-1. Open [shopfox.ai](https://shopfox.ai) and log in
-2. Go to **Settings → Agent API**
-3. Click **Generate key** — the key starts with `sk_shopfox_` and is shown only once (copy it and store it safely)
+👉 **https://shopfox.ai/user-info?createApiKey=1**
 
-You can generate, list, and revoke keys there at any time.
+The key starts with `sk_shopfox_`. You can also go to **Settings → Agent API** in the
+web app at any time to generate, list, and revoke keys.
 
 ## 🚀 Manual Installation
 
