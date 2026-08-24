@@ -43,6 +43,23 @@ web app at any time to generate, list, and revoke keys.
 
 ## 🚀 Manual Installation
 
+### Codex (OpenAI Codex CLI / app)
+
+Install from the plugin marketplace (one-time setup):
+
+```bash
+# Add the marketplace (GitHub source)
+codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
+
+# Install the plugin
+codex plugin add shopfox-shopping@shopfox-shopping
+
+# Set your API key (the plugin reads it from this env var)
+export SHOPFOX_API_KEY="sk_shopfox_..."
+```
+
+Or add it from the Codex UI: **Codex → Plugins → Add marketplace →** paste the GitHub URL above (sparse path: `plugins/codex`). Then ask: **"Find me noise-cancelling headphones under $300"**.
+
 ### Claude Desktop / Claude Code
 
 1. Get your API key (see above)
@@ -90,6 +107,7 @@ export SHOPFOX_API_KEY="sk_shopfox_..."
 | Platform | Status |
 |----------|--------|
 | **Any local MCP agent** (Claude Code, Cursor, Windsurf, Codex, etc.) | ✅ Available now — use the prompt above or manual config |
+| **Codex plugin marketplace** | ✅ Available now — `codex plugin marketplace add` (see Manual Installation) |
 | **skills.sh** | ✅ Available now |
 | **ChatGPT / OpenAI Apps** | 🚧 In development & review |
 | **Claude Plugin Directory** | 🚧 In development & review |
