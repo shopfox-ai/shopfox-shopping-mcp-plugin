@@ -1,0 +1,25 @@
+{
+  "name": "shopfox-shopping",
+  "version": "1.0.0",
+  "description": "US shopping research and offer comparison via the Shopfox shopping agent. Produces product recommendations with prices, sellers, and purchase links.",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Shopfox Shopping",
+    "shortDescription": "US shopping research with real prices and purchase links",
+    "longDescription": "Research products across major US retailers (Amazon, Best Buy, Walmart, Target), compare offers, and get structured reports with real prices, sellers, ratings, and direct purchase links. Budget-aware recommendations with cross-session preference memory.",
+    "developerName": "Shopfox",
+    "category": "Shopping",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://shopfox.ai",
+    "privacyPolicyURL": "https://shopfox.ai/privacy",
+    "termsOfServiceURL": "https://shopfox.ai/terms",
+    "defaultPrompt": [
+      "Find me a product under a budget with prices and links",
+      "Compare shopping options for a product across stores",
+      "Research the best value offer for a product I need"
+    ],
+    "brandColor": "#2669FE"
+  }
+}
