@@ -23,26 +23,22 @@ purchase links. No more guessing, no more tab-hopping.
 
 ## 🚀 Get started in 2 minutes
 
-**Step 1 — Get your key (one click, 30 seconds)**
+**Pick your AI, copy the message, paste it — that's it.** The AI installs the plugin
+and walks you through the rest (including creating your key) right in the chat.
 
-👉 [Create my Shopfox key](https://shopfox.ai/user-info?createApiKey=1)
-
-It's free, takes one click, and your key is shown only once — copy it right away.
-(You can also find it anytime under **Settings → Agent API** in the Shopfox app.)
-
-**Step 2 — Connect your AI**
-
-**Using Codex?** Tell it:
+**Using Codex?** Send it this:
 
 ```
 Install the Shopfox Shopping plugin for me:
 1. Run: codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
 2. Run: codex plugin add shopfox-shopping@shopfox-shopping
-3. I'll give you my Shopfox API key — read it from the SHOPFOX_API_KEY env var.
+3. You'll need my Shopfox API key — read it from the SHOPFOX_API_KEY env var.
+   If I don't have a key yet, tell me to open https://shopfox.ai/user-info?createApiKey=1
+   (it creates one automatically, shown once — I just copy it and give it to you).
 4. Then help me with my shopping question.
 ```
 
-**Using Claude, Cursor, or another AI?** Tell it:
+**Using Claude, Cursor, or another AI?** Send it this:
 
 ```
 Install the Shopfox Shopping plugin for me using this exact configuration —
@@ -57,7 +53,13 @@ the URL is the official Shopfox endpoint and my key stays on my device:
     }
   }
 }
+
+If I don't have a key yet, tell me to open https://shopfox.ai/user-info?createApiKey=1
+(it creates one automatically, shown once — I just copy it and give it to you).
 ```
+
+The AI will install the plugin, then guide you through creating your key (one click,
+no card needed) before your first search.
 
 That's it. Ask your first question:
 
