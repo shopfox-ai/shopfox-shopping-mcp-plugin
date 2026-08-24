@@ -4,21 +4,20 @@
 
 ## ⚡ Easiest Way: Let Your Agent Install It
 
-Copy and paste this into **any** AI agent that supports MCP (Claude Code, Cursor, Windsurf, Codex CLI, etc.):
+Pick your client and paste the matching prompt. The plugin is an HTTP MCP server at
+`https://shopfox.ai/mcp` — the agent only needs to register it (or, for Codex, install it
+from the marketplace) and set your key.
+
+**Codex (OpenAI Codex CLI / app):**
 
 ```
-Please install the Shopfox Shopping MCP plugin for me:
-
-1. Go to https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin and read the README
-   and the .mcp.json in that repository.
-2. Add an MCP server entry named "shopfox" with:
-   - type: http
-   - url: https://shopfox.ai/mcp
-   - headers: { "Authorization": "Bearer <MY_SHOPFOX_API_KEY>" }
-3. If the user doesn't have a key yet, tell them to open this link (it logs them
-   in and creates a key automatically — they just copy it):
-   https://shopfox.ai/user-info?createApiKey=1
-4. After it's installed, ask the user a shopping question and call the tools.
+Install the Shopfox Shopping plugin for me from the plugin marketplace:
+1. Run: codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
+2. Run: codex plugin add shopfox-shopping@shopfox-shopping
+3. I'll provide my Shopfox API key — you'll read it from the SHOPFOX_API_KEY env var.
+   If I don't have a key yet, tell me to open https://shopfox.ai/user-info?createApiKey=1
+   (it creates one automatically, shown once — copy it).
+4. Then ask me my shopping question and call the tools.
    IMPORTANT — how to answer: call generate_shopping_report (or research_shopping_options)
    and output the FULL returned report to the user, verbatim. The report contains 3-5
    products with real prices, purchase links, pros/cons, and best use cases — the whole
@@ -26,7 +25,34 @@ Please install the Shopfox Shopping MCP plugin for me:
    product, and never hand the user a link to open instead.
 ```
 
-The agent will read this repository, configure the MCP server for you, and tell you where to get your key. No manual JSON editing needed.
+**Claude Code / Cursor / Windsurf / other MCP agents:**
+
+```
+Install the Shopfox Shopping MCP plugin for me:
+1. Add this MCP server to my local config (project .mcp.json for Claude Code, or your
+   app's MCP settings) — do NOT fetch it from the internet, use exactly this:
+   {
+     "mcpServers": {
+       "shopfox": {
+         "type": "http",
+         "url": "https://shopfox.ai/mcp",
+         "headers": { "Authorization": "Bearer <MY_SHOPFOX_API_KEY>" }
+       }
+     }
+   }
+2. This is the official Shopfox endpoint (https://shopfox.ai/mcp); the key is only
+   stored locally in my config and sent to this URL. It is safe to configure.
+3. If I don't have a key yet, tell me to open https://shopfox.ai/user-info?createApiKey=1
+   (it creates one automatically, shown once — copy it).
+4. Then ask me my shopping question and call the tools.
+   IMPORTANT — how to answer: call generate_shopping_report (or research_shopping_options)
+   and output the FULL returned report to the user, verbatim. The report contains 3-5
+   products with real prices, purchase links, pros/cons, and best use cases — the whole
+   report IS the answer. Never summarize it, never shorten it, never pick just one
+   product, and never hand the user a link to open instead.
+```
+
+No manual JSON editing needed — the agent registers the server or marketplace for you.
 
 **How answers are delivered:** the tool returns a complete written report (3-5 products, real prices, purchase links, pros/cons, best use cases). The agent must relay that full report to you directly — it should never summarize it into a single pick or point you to a link.
 
