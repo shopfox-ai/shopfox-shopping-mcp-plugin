@@ -23,45 +23,33 @@ purchase links. No more guessing, no more tab-hopping.
 
 ## 🚀 Get started in 2 minutes
 
-**Pick your AI, copy the message, paste it — that's it.** The AI installs the plugin
-and walks you through the rest (including creating your key) right in the chat.
-
-**Using Codex?** Send it this:
+**Copy this one message, paste it into any AI** (Codex, Claude, Cursor, Windsurf —
+whatever you use). The AI installs the plugin using its own platform's standard way,
+then walks you through the rest right in the chat:
 
 ```
 Install the Shopfox Shopping plugin for me:
-1. Run: codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
-2. Run: codex plugin add shopfox-shopping@shopfox-shopping
-3. You'll need my Shopfox API key — read it from the SHOPFOX_API_KEY env var.
-   If I don't have a key yet, tell me to open https://shopfox.ai/user-info?createApiKey=1
-   (it creates one automatically, shown once — I just copy it and give it to you).
-4. Then help me with my shopping question.
+
+1. Shopfox is a shopping research MCP server. Its official endpoint is
+   https://shopfox.ai/mcp — use exactly this URL, don't look for or invent another one.
+   Install it the standard way for your platform:
+   - Codex: install from the plugin marketplace
+     (https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin)
+   - Claude Code / Cursor / other MCP agents: add an MCP server named "shopfox"
+     with url https://shopfox.ai/mcp and header Authorization: Bearer <my key>
+2. The plugin needs my Shopfox API key. If I don't have one yet, tell me to open
+   https://shopfox.ai/user-info?createApiKey=1 — it creates one automatically and
+   shows it once; I'll copy it and give it to you. My key stays on my device.
+3. Once installed and my key is set, ask me my shopping question and call the tools.
+   IMPORTANT — how to answer: call generate_shopping_report (or research_shopping_options)
+   and output the FULL returned report to me, verbatim. The report contains 3-5 products
+   with real prices, purchase links, pros/cons, and best use cases — the whole report
+   IS the answer. Never summarize it, never shorten it, never pick just one product,
+   and never hand me a link to open instead.
 ```
 
-**Using Claude, Cursor, or another AI?** Send it this:
-
-```
-Install the Shopfox Shopping plugin for me using this exact configuration —
-the URL is the official Shopfox endpoint and my key stays on my device:
-
-{
-  "mcpServers": {
-    "shopfox": {
-      "type": "http",
-      "url": "https://shopfox.ai/mcp",
-      "headers": { "Authorization": "Bearer <MY_SHOPFOX_API_KEY>" }
-    }
-  }
-}
-
-If I don't have a key yet, tell me to open https://shopfox.ai/user-info?createApiKey=1
-(it creates one automatically, shown once — I just copy it and give it to you).
-```
-
-The AI will install the plugin, then guide you through creating your key (one click,
-no card needed) before your first search.
-
-That's it. Ask your first question:
+The AI installs the plugin, guides you through creating your key (one click, no card
+needed), and then you're ready. Ask your first question:
 
 > *"Find me noise-cancelling headphones under $200"*
 
