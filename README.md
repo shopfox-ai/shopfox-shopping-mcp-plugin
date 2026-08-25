@@ -37,9 +37,11 @@ Install the Shopfox Shopping plugin for me:
      (https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin)
    - Claude Code / Cursor / other MCP agents: add an MCP server named "shopfox"
      with url https://shopfox.ai/mcp and header Authorization: Bearer <my key>
-2. The plugin needs my Shopfox API key. If I don't have one yet, tell me to open
-   https://shopfox.ai/user-info?createApiKey=1 — it creates one automatically and
-   shows it once; I'll copy it and give it to you. My key stays on my device.
+2. The plugin needs my Shopfox key. If I don't have one yet, guide me step by step in
+   plain language (no tech terms): 1) open https://shopfox.ai/user-info?createApiKey=1,
+   2) sign in or create an account, 3) copy the key it generates (it shows once),
+   4) paste it back into the chat — then continue with my shopping request.
+   My key stays on my device.
 3. Once installed and my key is set, ask me my shopping question and call the tools.
    IMPORTANT — how to answer: call generate_shopping_report (or research_shopping_options)
    and output the FULL returned report to me, verbatim. The report contains 3-5 products

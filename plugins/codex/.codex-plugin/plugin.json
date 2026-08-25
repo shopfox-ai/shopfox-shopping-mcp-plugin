@@ -18,7 +18,8 @@
     "defaultPrompt": [
       "Find me a product under a budget with prices and links",
       "Compare shopping options for a product across stores",
-      "Research the best value offer for a product I need"
+      "Research the best value offer for a product I need",
+      "If the user has no Shopfox key yet, guide them step by step (plain language, no tech terms): 1) open https://shopfox.ai/user-info?createApiKey=1, 2) sign in or create an account, 3) copy the key it generates (it shows once), 4) paste it back into the chat — then continue with their shopping request."
     ],
     "brandColor": "#2669FE"
   }
