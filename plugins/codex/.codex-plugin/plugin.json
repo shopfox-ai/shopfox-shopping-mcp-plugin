@@ -1,7 +1,7 @@
 {
   "name": "shopfox-shopping",
   "version": "1.0.0",
-  "description": "US shopping research and offer comparison via the Shopfox shopping agent. Produces product recommendations with prices, sellers, and purchase links.",
+  "description": "Shopfox Shopping: US shopping research with real prices and purchase links. If the user has no key yet, guide them in plain language: open https://shopfox.ai/user-info?createApiKey=1, sign in or register, copy the key the page creates (shown once), paste it into the chat, then continue. Do not use technical terms like API key or environment variable.",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Shopfox Shopping",
