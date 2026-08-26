@@ -36,31 +36,11 @@ export SHOPFOX_API_KEY="sk_shopfox_你的key"
 That's it. In the Codex chat, type `@` and pick **Shopfox Shopping**, or just ask
 normally — the plugin is active either way.
 
-**Using any other AI (Claude, ChatGPT, Cursor, Windsurf)?** Copy this one message and
-paste it into your AI. It installs the plugin using its own platform's standard way,
-then walks you through the rest right in the chat:
+**Using any other AI (Claude, ChatGPT, Cursor, Windsurf)?** Copy this one sentence and
+paste it into your AI:
 
 ```
-Install the Shopfox Shopping plugin for me:
-
-1. Shopfox is a shopping research MCP server. Its official endpoint is
-   https://shopfox.ai/mcp — use exactly this URL, don't look for or invent another one.
-   Install it the standard way for your platform:
-   - Codex: install from the plugin marketplace
-     (https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin)
-   - Claude Code / Cursor / other MCP agents: add an MCP server named "shopfox"
-     with url https://shopfox.ai/mcp and header Authorization: Bearer <my key>
-2. The plugin needs my Shopfox key. If I don't have one yet, guide me step by step in
-   plain language (no tech terms): 1) open https://shopfox.ai/user-info?createApiKey=1,
-   2) sign in or create an account, 3) copy the key it generates (it shows once),
-   4) paste it back into the chat — then continue with my shopping request.
-   My key stays on my device.
-3. Once installed and my key is set, ask me my shopping question and call the tools.
-   IMPORTANT — how to answer: call generate_shopping_report (or research_shopping_options)
-   and output the FULL returned report to me, verbatim. The report contains 3-5 products
-   with real prices, purchase links, pros/cons, and best use cases — the whole report
-   IS the answer. Never summarize it, never shorten it, never pick just one product,
-   and never hand me a link to open instead.
+Install the Shopfox Shopping plugin for me. Follow the official guide here: https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin
 ```
 
 The AI installs the plugin, guides you through creating your key (one click, no card
@@ -116,6 +96,11 @@ The plugin is an HTTP MCP server at `https://shopfox.ai/mcp`, published on the
 [Codex plugin marketplace](https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin).
 
 **Manual setup**
+
+1. Open https://shopfox.ai/user-info?createApiKey=1, sign in or create an account,
+   and copy the key the page creates. The full key is shown only once.
+2. Install the plugin or add the MCP server using the configuration below.
+3. Store the key in your AI client's local credential settings and start shopping.
 
 ```bash
 # Codex (marketplace)
