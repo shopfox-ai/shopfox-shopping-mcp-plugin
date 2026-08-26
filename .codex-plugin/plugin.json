@@ -4,5 +4,12 @@
   "version": "1.0.0",
   "skills": {
     "shopping-advisor": "skills/shopping-advisor/SKILL.md"
+  },
+  "interface": {
+    "displayName": "Shopfox Shopping",
+    "shortDescription": "US shopping research with real prices and purchase links",
+    "brandColor": "#2669FE",
+    "composerIcon": "./assets/shopfox-fox.png",
+    "logo": "./assets/shopfox-fox.png"
   }
 }

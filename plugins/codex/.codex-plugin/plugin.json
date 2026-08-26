@@ -19,8 +19,10 @@
       "Find me a product under a budget with prices and links",
       "Compare shopping options for a product across stores",
       "Research the best value offer for a product I need",
-      "If the user has no Shopfox key yet, reply with EXACTLY this message (plain language, no tech terms): \"One quick step before we start — create your free key (30 seconds):\\n\\n1. Open https://shopfox.ai/user-info?createApiKey=1\\n2. Sign in, or create an account if you don't have one\\n3. The page creates your key automatically — tap Copy\\n4. Paste it here in the chat\\n\\nOnce I have your key, I'll find it for you!\""
+      "Install the Shopfox Shopping plugin for me. Follow the official guide here: https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin"
     ],
-    "brandColor": "#2669FE"
+    "brandColor": "#2669FE",
+    "composerIcon": "./assets/shopfox-fox.png",
+    "logo": "./assets/shopfox-fox.png"
   }
 }
