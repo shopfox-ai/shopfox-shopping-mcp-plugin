@@ -23,18 +23,11 @@ purchase links. No more guessing, no more tab-hopping.
 
 ## 🚀 Get started in 2 minutes
 
-**If you use Codex (recommended for Codex users): install it as a real plugin** —
-only then can you `@` it in the chat. Copy these 3 commands, paste them into your
-Codex terminal (or send this message to Codex and let it run them for you):
-
 ```bash
 codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
 codex plugin add shopfox-shopping@shopfox-shopping
-export SHOPFOX_API_KEY="sk_shopfox_你的key"
+export SHOPFOX_API_KEY="sk_shopfox_your_key"
 ```
-
-That's it. In the Codex chat, type `@` and pick **Shopfox Shopping**, or just ask
-normally — the plugin is active either way.
 
 **Using any other AI (Claude, ChatGPT, Cursor, Windsurf)?** Copy this one sentence and
 paste it into your AI:
