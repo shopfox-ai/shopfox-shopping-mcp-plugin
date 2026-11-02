@@ -3,7 +3,7 @@
   "mcpServers": {
     "shopfox": {
       "type": "streamable-http",
-      "url": "https://www.shopfox.ai/mcp"
+      "url": "https://mcp.shopfox.ai/mcp"
     }
   }
 }

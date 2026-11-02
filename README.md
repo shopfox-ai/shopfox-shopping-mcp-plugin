@@ -50,7 +50,7 @@ Add a remote MCP server:
 
 | Setting | Value |
 |---|---|
-| URL | `https://www.shopfox.ai/mcp` |
+| URL | `https://mcp.shopfox.ai/mcp` |
 | Transport | Streamable HTTP |
 | Auth | OAuth (automatic), or `Authorization: Bearer sk_shopfox_…` with a key from the link above |
 
@@ -104,7 +104,7 @@ them across conversations.
 
 ## 🛠️ For developers
 
-The plugin is a remote MCP server (Streamable HTTP) at `https://www.shopfox.ai/mcp`.
+The plugin is a remote MCP server (Streamable HTTP) at `https://mcp.shopfox.ai/mcp`.
 
 **Layout of this repository**
 
@@ -121,8 +121,8 @@ The plugin is a remote MCP server (Streamable HTTP) at `https://www.shopfox.ai/m
 **Authentication**
 
 - OAuth 2.1 with PKCE and dynamic client registration. Discovery:
-  `https://www.shopfox.ai/.well-known/oauth-authorization-server` and
-  `https://www.shopfox.ai/.well-known/oauth-protected-resource`. Scope: `mcp:shopping`.
+  `https://mcp.shopfox.ai/.well-known/oauth-authorization-server` and
+  `https://mcp.shopfox.ai/.well-known/oauth-protected-resource`. Scope: `mcp:shopping`.
 - Or a personal API key as a bearer token: `Authorization: Bearer sk_shopfox_…`,
   created at https://www.shopfox.ai/user-info?createApiKey=1 (or **Settings → Agent API**
   in the Shopfox web app).
