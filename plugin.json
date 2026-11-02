@@ -25,11 +25,12 @@
         "shortDescription": "Real prices, stores, and links",
         "longDescription": "Shopfox turns your AI into a shopping expert for US retailers. Ask in plain English and it researches live offers across Amazon, Best Buy, Walmart, Target and more, then returns a complete report: 3-5 top picks with current prices, ratings, pros and cons, and direct purchase links. It remembers your preferences across conversations and never buys anything for you - you keep control of checkout.\n\nWhat makes it different from a generic product search: every price is verified against the retailer at research time, every pick is matched to the use case you describe (room size, budget tiers, gift recipient), and the report explains trade-offs instead of listing SKUs. Sign in once with OAuth; no API keys to manage.",
         "developerName": "Shopfox",
-        "category": "Shopping",
+        "category": "Lifestyle",
         "capabilities": [
           "Read"
         ],
         "websiteURL": "https://www.shopfox.ai",
+        "supportURL": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin/issues",
         "privacyPolicyURL": "https://www.shopfox.ai/privacy-policy",
         "termsOfServiceURL": "https://www.shopfox.ai/terms-of-service",
         "defaultPrompt": [
@@ -41,6 +42,65 @@
         "composerIcon": "./assets/shopfox-fox.png",
         "logo": "./assets/shopfox-fox.png",
         "screenshots": []
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Budget-constrained category search",
+              "prompt": "Find wireless noise-cancelling headphones under $200",
+              "tools_triggered": "generate_shopping_report (or start_shopping_report on hosts with short timeouts)",
+              "expected_behavior": "Returns a complete report within a few minutes: 3-5 specific models, each with a verified price at or below $200, the retailer, and a direct purchase link; includes a comparison table and a clear top recommendation."
+            },
+            {
+              "description": "Use-case aware recommendation (room / lighting)",
+              "prompt": "I need a 55-inch 4K TV under $600 for a bright living room",
+              "tools_triggered": "generate_shopping_report (or start_shopping_report on hosts with short timeouts)",
+              "expected_behavior": "3-5 55-inch TVs at or below $600 with prices, retailers and links; at least one explanation of why a pick suits a bright room (peak brightness, anti-glare panel)."
+            },
+            {
+              "description": "Gift shopping for a persona",
+              "prompt": "Birthday gift for a photographer, budget around $150",
+              "tools_triggered": "generate_shopping_report (or start_shopping_report on hosts with short timeouts)",
+              "expected_behavior": "3-5 photography-related gift ideas (accessories, storage, bags, tripods) around $150 with prices, retailers and links; each pick explains why it fits a photographer."
+            },
+            {
+              "description": "Multi-budget comparison",
+              "prompt": "Compare gaming laptops at around $1000 and $1500",
+              "tools_triggered": "generate_shopping_report (or start_shopping_report on hosts with short timeouts)",
+              "expected_behavior": "At least one pick per budget tier with prices, retailers and links, plus a cross-tier comparison of what the extra money buys (GPU, display, battery)."
+            },
+            {
+              "description": "Preference carried across turns",
+              "prompt": "I prefer Apple-compatible accessories. Now find me earbuds under $180",
+              "tools_triggered": "generate_shopping_report (or start_shopping_report on hosts with short timeouts)",
+              "expected_behavior": "3-5 earbuds at or below $180 that favor Apple/iOS compatibility, with prices, retailers and links; the reasoning references the stated Apple preference."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Non-shopping coding request should not trigger the plugin",
+              "prompt": "Write me a Python script to sort a list of numbers"
+            },
+            {
+              "description": "General knowledge question should not trigger the plugin",
+              "prompt": "Explain how noise-cancelling headphones work"
+            },
+            {
+              "description": "Non-US marketplace request should not produce a report",
+              "prompt": "Find the cheapest iPhone 16 on Taobao or JD.com"
+            }
+          ]
+        },
+        "demo_recording_url": "",
+        "commerce": false,
+        "commerce_description": "The plugin researches and compares offers only. It never purchases, adds to cart, or handles payment; purchase links go to the retailer's own site."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "Initial public release. US shopping research across Amazon, Best Buy, Walmart, Target and more. Tools: generate_shopping_report (one-shot), start_shopping_report (async for short-timeout hosts), research_shopping_options (structured, supports clarification). OAuth 2.1 sign-in with PKCE and dynamic client registration. Reports include verified prices, retailer, purchase link, pros/cons and a clear recommendation."
       }
     }
   }
