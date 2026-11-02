@@ -8,19 +8,29 @@
   "homepage": "https://www.shopfox.ai",
   "repository": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin",
   "license": "Apache-2.0",
-  "keywords": ["shopping", "price-comparison", "ecommerce", "deals", "product-research"],
+  "keywords": [
+    "shopping",
+    "price-comparison",
+    "ecommerce",
+    "deals",
+    "product-research"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Shopfox Shopping",
-    "shortDescription": "Real prices, real stores, real links",
-    "longDescription": "Shopfox turns your AI into a shopping expert for US retailers. Ask in plain English and it researches live offers across Amazon, Best Buy, Walmart, and Target, then returns a complete report: 3-5 top picks with current prices, ratings, pros and cons, and direct purchase links.",
+    "shortDescription": "Real prices, stores, and links",
+    "longDescription": "Shopfox turns your AI into a shopping expert for US retailers. Ask in plain English and it researches live offers across Amazon, Best Buy, Walmart, Target and more, then returns a complete report: 3-5 top picks with current prices, ratings, pros and cons, and direct purchase links. It remembers your preferences across conversations and never buys anything for you - you keep control of checkout.\n\nWhat makes it different from a generic product search: every price is verified against the retailer at research time, every pick is matched to the use case you describe (room size, budget tiers, gift recipient), and the report explains trade-offs instead of listing SKUs. Sign in once with OAuth; no API keys to manage.",
     "developerName": "Shopfox",
     "category": "Shopping",
-    "capabilities": ["Read"],
+    "capabilities": [
+      "Read"
+    ],
     "websiteURL": "https://www.shopfox.ai",
     "privacyPolicyURL": "https://www.shopfox.ai/privacy-policy",
     "termsOfServiceURL": "https://www.shopfox.ai/terms-of-service",
-    "defaultPrompt": ["Find noise-cancelling headphones under $200"],
+    "defaultPrompt": [
+      "Find noise-cancelling headphones under $200"
+    ],
     "brandColor": "#2669FE",
     "composerIcon": "./assets/shopfox-fox.png",
     "logo": "./assets/shopfox-fox.png",
