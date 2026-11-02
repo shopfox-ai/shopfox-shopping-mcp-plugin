@@ -2,9 +2,9 @@
   "mcpServers": {
     "shopfox": {
       "type": "http",
-      "url": "https://shopfox.ai/mcp",
+      "url": "https://www.shopfox.ai/mcp",
       "headers": {
-        "Authorization": "Bearer ${SHOPFOX_API_KEY}"
+        "Authorization": "Bearer ${user_config.shopfox_api_key}"
       }
     }
   }
