@@ -8,7 +8,7 @@
       "name": "shopfox-shopping",
       "source": {
         "source": "local",
-        "path": "./plugins/codex"
+        "path": "./"
       },
       "policy": {
         "installation": "AVAILABLE",

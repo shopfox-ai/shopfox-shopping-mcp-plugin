@@ -1,17 +1,38 @@
 {
   "name": "shopfox-shopping",
-  "description": "US shopping research and offer comparison via the Shopfox shopping agent. Produces product recommendations with prices, sellers, and purchase links.",
-  "version": "1.0.0",
-  "author": "Shopfox",
-  "homepage": "https://shopfox.ai",
+  "displayName": "Shopfox Shopping",
+  "version": "1.1.0",
+  "description": "US shopping research with real prices, sellers, and purchase links. Ask for a product, get a complete report of 3-5 buyable picks from Amazon, Best Buy, Walmart, and Target.",
+  "author": {
+    "name": "Shopfox",
+    "email": "support@shopfox.ai",
+    "url": "https://www.shopfox.ai"
+  },
+  "homepage": "https://www.shopfox.ai",
+  "repository": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin",
   "license": "Apache-2.0",
-  "skills": {
-    "shopping-advisor": "skills/shopping-advisor/SKILL.md"
+  "keywords": ["shopping", "price-comparison", "ecommerce", "deals", "product-research", "mcp"],
+  "icon": "./assets/shopfox-fox.png",
+  "documentationUrl": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin#readme",
+  "supportUrl": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin/issues",
+  "privacyPolicyUrl": "https://www.shopfox.ai/privacy-policy",
+  "termsOfServiceUrl": "https://www.shopfox.ai/terms-of-service",
+  "userConfig": {
+    "shopfox_api_key": {
+      "type": "string",
+      "title": "Shopfox API key",
+      "description": "Your personal key (starts with sk_shopfox_). Create one in one click at https://www.shopfox.ai/user-info?createApiKey=1 after signing in.",
+      "sensitive": true,
+      "required": true
+    }
   },
   "mcpServers": {
     "shopfox": {
       "type": "http",
-      "url": "https://mcp.shopfox.ai/mastra/mcp/shopfox/mcp"
+      "url": "https://www.shopfox.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${user_config.shopfox_api_key}"
+      }
     }
   }
 }

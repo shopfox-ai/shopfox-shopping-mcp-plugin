@@ -1,15 +1,29 @@
 {
   "name": "shopfox-shopping",
-  "description": "US shopping research and offer comparison via the Shopfox shopping agent. Produces product recommendations with prices, sellers, and purchase links.",
-  "version": "1.0.0",
-  "skills": {
-    "shopping-advisor": "skills/shopping-advisor/SKILL.md"
+  "version": "1.1.0",
+  "description": "US shopping research with real prices, sellers, and purchase links. Ask for a product, get a complete report of 3-5 buyable picks from Amazon, Best Buy, Walmart, and Target.",
+  "author": {
+    "name": "Shopfox"
   },
+  "homepage": "https://www.shopfox.ai",
+  "repository": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["shopping", "price-comparison", "ecommerce", "deals", "product-research"],
+  "skills": "./skills/",
   "interface": {
     "displayName": "Shopfox Shopping",
-    "shortDescription": "US shopping research with real prices and purchase links",
+    "shortDescription": "Real prices, real stores, real links",
+    "longDescription": "Shopfox turns your AI into a shopping expert for US retailers. Ask in plain English and it researches live offers across Amazon, Best Buy, Walmart, and Target, then returns a complete report: 3-5 top picks with current prices, ratings, pros and cons, and direct purchase links.",
+    "developerName": "Shopfox",
+    "category": "Shopping",
+    "capabilities": ["Read"],
+    "websiteURL": "https://www.shopfox.ai",
+    "privacyPolicyURL": "https://www.shopfox.ai/privacy-policy",
+    "termsOfServiceURL": "https://www.shopfox.ai/terms-of-service",
+    "defaultPrompt": ["Find noise-cancelling headphones under $200"],
     "brandColor": "#2669FE",
     "composerIcon": "./assets/shopfox-fox.png",
-    "logo": "./assets/shopfox-fox.png"
+    "logo": "./assets/shopfox-fox.png",
+    "screenshots": []
   }
 }
