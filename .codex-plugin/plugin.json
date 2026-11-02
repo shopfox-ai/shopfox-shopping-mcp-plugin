@@ -21,7 +21,7 @@
     "shortDescription": "Real prices, stores, and links",
     "longDescription": "Shopfox turns your AI into a shopping expert for US retailers. Ask in plain English and it researches live offers across Amazon, Best Buy, Walmart, Target and more, then returns a complete report: 3-5 top picks with current prices, ratings, pros and cons, and direct purchase links. It remembers your preferences across conversations and never buys anything for you - you keep control of checkout.\n\nWhat makes it different from a generic product search: every price is verified against the retailer at research time, every pick is matched to the use case you describe (room size, budget tiers, gift recipient), and the report explains trade-offs instead of listing SKUs. Sign in once with OAuth; no API keys to manage.",
     "developerName": "Shopfox",
-    "category": "Lifestyle",
+    "category": "SHOPPING",
     "capabilities": [
       "Read"
     ],
