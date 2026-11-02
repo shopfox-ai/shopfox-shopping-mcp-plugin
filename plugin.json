@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "shopfox-shopping",
+  "version": "1.1.0",
+  "description": "US shopping research with real prices, sellers, and purchase links. Ask for a product, get a complete report of 3-5 buyable picks from Amazon, Best Buy, Walmart, and Target.",
+  "author": {
+    "name": "Shopfox",
+    "email": "support@shopfox.ai",
+    "url": "https://www.shopfox.ai"
+  },
+  "homepage": "https://www.shopfox.ai",
+  "repository": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["shopping", "price-comparison", "ecommerce", "deals", "product-research"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Shopfox Shopping",
+        "shortDescription": "Real prices, real stores, real links",
+        "longDescription": "Shopfox turns your AI into a shopping expert for US retailers. Ask in plain English and it researches live offers across Amazon, Best Buy, Walmart, and Target, then returns a complete report: 3-5 top picks with current prices, ratings, pros and cons, and direct purchase links. It remembers your preferences across conversations and never buys anything for you - you keep control of checkout.",
+        "developerName": "Shopfox",
+        "category": "Shopping",
+        "capabilities": ["Read"],
+        "websiteURL": "https://www.shopfox.ai",
+        "privacyPolicyURL": "https://www.shopfox.ai/privacy-policy",
+        "termsOfServiceURL": "https://www.shopfox.ai/terms-of-service",
+        "defaultPrompt": [
+          "Find noise-cancelling headphones under $200",
+          "Birthday gift for a photographer, budget $200",
+          "Compare 55-inch TVs under $800 for a bright living room"
+        ],
+        "brandColor": "#2669FE",
+        "composerIcon": "./assets/shopfox-fox.png",
+        "logo": "./assets/shopfox-fox.png",
+        "screenshots": []
+      }
+    }
+  }
+}

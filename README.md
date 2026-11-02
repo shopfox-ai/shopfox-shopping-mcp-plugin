@@ -21,23 +21,40 @@ purchase links. No more guessing, no more tab-hopping.
 
 ---
 
-## 🚀 Get started in 2 minutes
+## 🚀 Install
+
+### Codex
 
 ```bash
 codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
 codex plugin add shopfox-shopping@shopfox-shopping
-export SHOPFOX_API_KEY="sk_shopfox_your_key"
 ```
 
-**Using any other AI (Claude, ChatGPT, Cursor, Windsurf)?** Copy this one sentence and
-paste it into your AI:
+Then type `@shopfox` in Codex. The first time you use it, Codex opens a Shopfox
+sign-in page in your browser (OAuth) — no keys to copy.
 
-```
-Install the Shopfox Shopping plugin for me. Follow the official guide here: https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin
+### Claude Code
+
+```bash
+claude plugin marketplace add shopfox-ai/shopfox-shopping-mcp-plugin
+claude plugin install shopfox-shopping@shopfox
 ```
 
-The AI installs the plugin, guides you through creating your key (one click, no card
-needed), and then you're ready. Ask your first question:
+Claude Code asks for your Shopfox API key when it enables the plugin. Get one in one
+click at https://www.shopfox.ai/user-info?createApiKey=1 (sign in or sign up, the key
+is created automatically and shown once).
+
+### Any other MCP client (Cursor, Windsurf, ChatGPT, …)
+
+Add a remote MCP server:
+
+| Setting | Value |
+|---|---|
+| URL | `https://www.shopfox.ai/mcp` |
+| Transport | Streamable HTTP |
+| Auth | OAuth (automatic), or `Authorization: Bearer sk_shopfox_…` with a key from the link above |
+
+Then ask your first question:
 
 > *"Find me noise-cancelling headphones under $200"*
 
@@ -53,22 +70,24 @@ Your AI will return a **complete shopping report** — don't settle for less:
   - Why it's worth it (and what to watch out for)
 - **A clear recommendation** for your budget and use case
 
-The full report *is* the answer. If your AI tries to summarize it into one pick or
-just hands you a link, ask it to show you the whole report.
+A full report takes a few minutes to research. The full report *is* the answer. If
+your AI tries to summarize it into one pick or just hands you a link, ask it to show you
+the whole report.
 
 ---
 
 ## 🔒 Your privacy
 
-- Your key is stored on **your device** and only sent to shopfox.ai
+- Your sign-in or key is stored on **your device** and only sent to shopfox.ai
 - Searches are processed server-side and not stored long-term
 - Your preferences are private to your account
+- [Privacy policy](https://www.shopfox.ai/privacy-policy) · [Terms of service](https://www.shopfox.ai/terms-of-service)
 
 ---
 
 ## ❓ Frequently asked
 
-**Is it free?** Yes — get a key in one click, no card required.
+**Is it free?** Yes — sign up in one click, no card required.
 
 **What can it shop for?** Anything sold on major US retailers (Amazon, Best Buy,
 Walmart, Target): electronics, home goods, gifts, and more.
@@ -85,28 +104,28 @@ them across conversations.
 
 ## 🛠️ For developers
 
-The plugin is an HTTP MCP server at `https://shopfox.ai/mcp`, published on the
-[Codex plugin marketplace](https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin).
+The plugin is a remote MCP server (Streamable HTTP) at `https://www.shopfox.ai/mcp`.
 
-**Manual setup**
+**Layout of this repository**
 
-1. Open https://shopfox.ai/user-info?createApiKey=1, sign in or create an account,
-   and copy the key the page creates. The full key is shown only once.
-2. Install the plugin or add the MCP server using the configuration below.
-3. Store the key in your AI client's local credential settings and start shopping.
+| Path | Purpose |
+|---|---|
+| `plugin.json`, `mcp.json` | Portable [Agent Plugins](https://agent-plugins.org) manifest (OpenAI / Codex / ChatGPT), OAuth via dynamic client registration |
+| `.codex-plugin/plugin.json` | Compatibility manifest for older Codex builds |
+| `.agents/plugins/marketplace.json` | Codex marketplace catalog (install from this repo) |
+| `.claude-plugin/plugin.json`, `.mcp.json` | Claude Code plugin manifest; the API key is collected through `userConfig` |
+| `.claude-plugin/marketplace.json` | Claude Code marketplace catalog (install from this repo) |
+| `skills/shopping-advisor/SKILL.md` | The skill that tells the agent how to use the tools |
+| `agents/openai.yaml` | Agent dependency declaration |
 
-```bash
-# Codex (marketplace)
-codex plugin marketplace add https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin.git
-codex plugin add shopfox-shopping@shopfox-shopping
-export SHOPFOX_API_KEY="sk_shopfox_..."
+**Authentication**
 
-# Any MCP client — add a server:
-#   url:      https://shopfox.ai/mcp
-#   type:     streamable http
-#   auth:     Bearer token (your sk_shopfox_ key)
-#   tools:    research_shopping_options, generate_shopping_report, start_shopping_report
-```
+- OAuth 2.1 with PKCE and dynamic client registration. Discovery:
+  `https://www.shopfox.ai/.well-known/oauth-authorization-server` and
+  `https://www.shopfox.ai/.well-known/oauth-protected-resource`. Scope: `mcp:shopping`.
+- Or a personal API key as a bearer token: `Authorization: Bearer sk_shopfox_…`,
+  created at https://www.shopfox.ai/user-info?createApiKey=1 (or **Settings → Agent API**
+  in the Shopfox web app).
 
 **Tools**
 
@@ -118,4 +137,11 @@ export SHOPFOX_API_KEY="sk_shopfox_..."
 
 **Rate limits**: 100 requests/day per key, 3 concurrent requests per user.
 
-**License**: MIT
+**Validate locally**
+
+```bash
+claude plugin validate --strict .
+codex plugin marketplace add "$PWD" && codex plugin add shopfox-shopping@shopfox-shopping
+```
+
+**License**: Apache-2.0
