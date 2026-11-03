@@ -1,0 +1,20 @@
+{
+  "name": "shopfox-shopping",
+  "displayName": "Shopfox Shopping",
+  "version": "1.1.1",
+  "description": "US shopping research with real prices, sellers, and purchase links. Ask for a product and get a report of 3-5 buyable picks from Amazon, Best Buy, Walmart, and Target.",
+  "author": {
+    "name": "Shopfox",
+    "email": "support@shopfox.ai"
+  },
+  "homepage": "https://www.shopfox.ai",
+  "repository": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["shopping", "price-comparison", "ecommerce", "deals", "product-research", "mcp"],
+  "logo": "assets/shopfox-fox.png",
+  "mcpServers": {
+    "shopfox": {
+      "url": "https://mcp.shopfox.ai/mcp"
+    }
+  }
+}
