@@ -1,0 +1,33 @@
+name: Publish to MCP Registry
+
+# 把 server.json 发布到官方 MCP Registry（registry.modelcontextprotocol.io）。
+# 用 GitHub Actions OIDC 证明仓库属于 shopfox-ai 组织，无需任何密钥。
+# 改了 server.json（记得同时升 version）并推送后自动发布。
+on:
+  push:
+    branches: [main, mcp-registry-publish]
+    paths: [server.json]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install mcp-publisher
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.7/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+
+      - name: Validate server.json
+        run: ./mcp-publisher validate
+
+      - name: Authenticate to MCP Registry
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish server to MCP Registry
+        run: ./mcp-publisher publish
