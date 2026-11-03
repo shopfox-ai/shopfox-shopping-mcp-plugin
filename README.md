@@ -44,6 +44,15 @@ Claude Code asks for your Shopfox API key when it enables the plugin. Get one in
 click at https://www.shopfox.ai/user-info?createApiKey=1 (sign in or sign up, the key
 is created automatically and shown once).
 
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin
+```
+
+The first time you use it, Gemini CLI opens a Shopfox sign-in page in your browser
+(OAuth) — no keys to copy. If it doesn't, run `/mcp auth shopfox`.
+
 ### Any other MCP client (Cursor, Windsurf, ChatGPT, …)
 
 Add a remote MCP server:
