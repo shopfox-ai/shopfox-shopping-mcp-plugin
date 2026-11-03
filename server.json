@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.shopfox-ai/shopfox-shopping",
+  "title": "Shopfox Shopping",
+  "description": "US shopping research with real prices, sellers, and purchase links from Amazon, Best Buy, Walmart.",
+  "version": "1.1.1",
+  "websiteUrl": "https://www.shopfox.ai",
+  "repository": {
+    "url": "https://github.com/shopfox-ai/shopfox-shopping-mcp-plugin",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/shopfox-ai/shopfox-shopping-mcp-plugin/main/assets/shopfox-fox.png",
+      "mimeType": "image/png",
+      "sizes": ["800x800"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.shopfox.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. 'Bearer sk_shopfox_...' personal key from https://www.shopfox.ai/user-info?createApiKey=1. Leave empty to sign in with OAuth instead.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
